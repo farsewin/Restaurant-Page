@@ -96,7 +96,7 @@ function createContact() {
     contactInfo.appendChild(contactDetails);
     content.appendChild(contactInfo);
 
-    // Enhanced Map section
+    // Enhanced Map section with embedded Google Map
     const mapSection = document.createElement('div');
     mapSection.classList.add('map-section');
     mapSection.style.marginTop = '2rem';
@@ -106,7 +106,7 @@ function createContact() {
     mapTitle.style.marginBottom = '1rem';
     mapSection.appendChild(mapTitle);
     
-    // Create a more visually appealing map placeholder
+    // Create map container
     const mapContainer = document.createElement('div');
     mapContainer.classList.add('map-container');
     mapContainer.style.padding = '1rem';
@@ -114,61 +114,18 @@ function createContact() {
     mapContainer.style.borderRadius = '8px';
     mapContainer.style.boxShadow = '0 2px 5px rgba(0, 0, 0, 0.1)';
     
-    const map = document.createElement('div');
-    map.classList.add('map');
-    map.style.height = '350px';
-    map.style.backgroundColor = '#e6e6e6';
-    map.style.borderRadius = '4px';
-    map.style.position = 'relative';
-    map.style.overflow = 'hidden';
+    // Create iframe for Google Maps
+    const mapIframe = document.createElement('iframe');
+    mapIframe.src = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.9916256937595!2d2.2922926158385895!3d48.858370079287466!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e2964e34e2d%3A0x8ddca9ee380ef7e0!2sEiffel%20Tower!5e0!3m2!1sen!2sus!4v1617734684111!5m2!1sen!2sus';
+    mapIframe.width = '100%';
+    mapIframe.height = '350px';
+    mapIframe.style.border = '0';
+    mapIframe.allowFullscreen = '';
+    mapIframe.loading = 'lazy';
+    mapIframe.referrerPolicy = 'no-referrer-when-downgrade';
+    mapIframe.style.borderRadius = '4px';
     
-    // Add map elements to make it look more like a real map
-    const mapPin = document.createElement('div');
-    mapPin.style.position = 'absolute';
-    mapPin.style.top = '50%';
-    mapPin.style.left = '50%';
-    mapPin.style.transform = 'translate(-50%, -50%)';
-    mapPin.style.width = '20px';
-    mapPin.style.height = '20px';
-    mapPin.style.backgroundColor = '#e74c3c';
-    mapPin.style.borderRadius = '50%';
-    mapPin.style.border = '3px solid #fff';
-    mapPin.style.boxShadow = '0 0 5px rgba(0, 0, 0, 0.3)';
-    map.appendChild(mapPin);
-    
-    // Add some fake map features
-    const mapRoad1 = document.createElement('div');
-    mapRoad1.style.position = 'absolute';
-    mapRoad1.style.top = '45%';
-    mapRoad1.style.left = '0';
-    mapRoad1.style.width = '100%';
-    mapRoad1.style.height = '10px';
-    mapRoad1.style.backgroundColor = '#ddd';
-    map.appendChild(mapRoad1);
-    
-    const mapRoad2 = document.createElement('div');
-    mapRoad2.style.position = 'absolute';
-    mapRoad2.style.top = '0';
-    mapRoad2.style.left = '48%';
-    mapRoad2.style.width = '10px';
-    mapRoad2.style.height = '100%';
-    mapRoad2.style.backgroundColor = '#ddd';
-    map.appendChild(mapRoad2);
-    
-    // Add map overlay text
-    const mapOverlay = document.createElement('div');
-    mapOverlay.style.position = 'absolute';
-    mapOverlay.style.bottom = '10px';
-    mapOverlay.style.right = '10px';
-    mapOverlay.style.backgroundColor = 'rgba(255, 255, 255, 0.8)';
-    mapOverlay.style.padding = '5px 10px';
-    mapOverlay.style.borderRadius = '4px';
-    mapOverlay.style.fontSize = '12px';
-    mapOverlay.style.fontWeight = 'bold';
-    mapOverlay.textContent = 'Gourmet Haven';
-    map.appendChild(mapOverlay);
-    
-    mapContainer.appendChild(map);
+    mapContainer.appendChild(mapIframe);
     
     // Add directions text
     const directions = document.createElement('div');
